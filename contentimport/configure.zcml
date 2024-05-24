@@ -1,0 +1,47 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    >
+
+  <genericsetup:registerProfile
+      name="default"
+      title="Custom content-import using collective.exportimport"
+      description=""
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      directory="profiles/default"
+      />
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="Uninstall custom content-import using collective.exportimport"
+      description=""
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      directory="profiles/uninstall"
+      />
+
+  <browser:page
+      name="import_content"
+      for="zope.interface.Interface"
+      class=".import_content.CustomImportContent"
+      permission="cmf.ManagePortal"
+      layer="contentimport.interfaces.IContentimportLayer"
+      />
+
+  <browser:page
+      name="import_all"
+      for="*"
+      class=".views.ImportAll"
+      template="templates/import_all.pt"
+      permission="cmf.ManagePortal"
+      />
+
+  <browser:page
+      name="import_exhibition"
+      for="zope.interface.Interface"
+      class=".import_content.CustomImportContent"
+      permission="cmf.ManagePortal"
+      />
+
+</configure>
