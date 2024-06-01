@@ -123,7 +123,14 @@ class CustomImportContent(ImportContent):
             # Create a new dictionary to hold only the desired fields
             print("ITEM type exhibition")
             filtered_item = {}
-            filtered_fields = ["documentation", "notes"]
+            filtered_fields = [
+                "documentation",
+                "notes",
+                "exhibition_designer",
+                "objects",
+                "last_successful_update",
+                "rawdata",
+            ]
             # List of fields you want to import
             for field, value in item.items():
                 if field in filtered_fields:
